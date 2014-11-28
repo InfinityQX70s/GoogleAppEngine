@@ -1,0 +1,12 @@
+{%  extends "main.html" %}
+{% block content %}
+	{% for article in articles %}
+		Title: {{ article.title }} 
+    	Text : {{ article.text }} 
+    	Date: {{ article.date.strftime('%Y-%m-%d')  }} 
+    	Username: {{ article.username }} 
+    	<a href ="delete/{{ article.key.id() }}">Delet </a> 
+    	&nbsp;&nbsp;
+    	<a href ="show/{{ article.key.id() }}">Show </a> </br>
+	{% endfor %}
+{% endblock content %}

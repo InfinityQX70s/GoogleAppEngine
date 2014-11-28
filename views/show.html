@@ -1,0 +1,18 @@
+{%  extends "main.html" %}
+{% block content %}
+		Title: {{ templatevalues.articles.title }} 
+    	Text : {{ templatevalues.articles.text }}</br>
+    	-------------------COMMENTS----------------</br>
+    	{% for coment in templatevalues.coments %}
+			Title: {{ coment.title }} 
+    		Text : {{ coment.text }} 
+    		Date: {{ coment.date.strftime('%Y-%m-%d')  }} 
+    		ID: {{ coment.forarticle }} 
+    		<a href ="/show/{{ templatevalues.articles.key.id()}}/delete/{{coment.key.id()}}">Delet </a> </br>
+		{% endfor %}	
+		<form action="/show/{{templatevalues.articles.key.id()}}/create" method="post">
+    		<input type="text" name="title" > <br>
+    		<input type="text" name="text" > <br>
+    		<input type="submit" value="Add comment">
+		</form> 
+{% endblock content %}
