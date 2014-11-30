@@ -1,18 +1,42 @@
 {%  extends "main.html" %}
 {% block content %}
-		Title: {{ templatevalues.articles.title }} 
-    	Text : {{ templatevalues.articles.text }}</br>
-    	-------------------COMMENTS----------------</br>
-    	{% for coment in templatevalues.coments %}
-			Title: {{ coment.title }} 
-    		Text : {{ coment.text }} 
-    		Date: {{ coment.date.strftime('%Y-%m-%d')  }} 
-    		ID: {{ coment.forarticle }} 
-    		<a href ="/show/{{ templatevalues.articles.key.id()}}/delete/{{coment.key.id()}}">Delet </a> </br>
-		{% endfor %}	
-		<form action="/show/{{templatevalues.articles.key.id()}}/create" method="post">
-    		<input type="text" name="title" > <br>
-    		<input type="text" name="text" > <br>
-    		<input type="submit" value="Add comment">
-		</form> 
-{% endblock content %}
+<br>
+<br>
+<br>
+    <div class="col-md-5 col-md-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3>{{ templatevalues.articles.title }}</h3></div>
+                <div class="panel-body">
+                    {{ templatevalues.articles.text }}
+                </div>
+            </div>
+        </div>
+        {% if templatevalues.user_log %}
+                <div class="col-md-4 col-md-offset-4">
+                    <form action="/{{templatevalues.articles.key.id()}}/create" class="navbar-form navbar-right" method="post">
+                    <input type="text" class = "form-control" name="text" placeholder = "Text comment" required> 
+                    <input type="submit" class = "btn btn-primary" value="Add comment">
+                    </form> 
+                </div> 
+        {% else %}
+        {% endif %}
+        </br>
+            {% for coment in templatevalues.coments %}
+            <div class="col-md-5 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>{{ coment.username }}</4>
+                    </div>
+                        <div class="panel-body">
+                            {{ coment.text }}
+                        <div class="text-right">
+                            {% if templatevalues.user_log %}
+                                <a href ="/{{ templatevalues.articles.key.id()}}/delete/{{coment.key.id()}}" class="btn btn-primary btn-xs" role="button">Delet </a>
+                            {% else %}
+                            {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}               
+ {% endblock content %}

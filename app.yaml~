@@ -6,7 +6,7 @@ threadsafe: true
 
 handlers:
 - url: /static
-  static_dir: /home/infinity/google_appengine/blog/static
+  static_dir: /static
 - url: /.*
   script: main.app
 

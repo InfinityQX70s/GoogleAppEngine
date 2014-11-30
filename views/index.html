@@ -1,12 +1,41 @@
 {%  extends "main.html" %}
 {% block content %}
-	{% for article in articles %}
-		Title: {{ article.title }} 
-    	Text : {{ article.text }} 
-    	Date: {{ article.date.strftime('%Y-%m-%d')  }} 
-    	Username: {{ article.username }} 
-    	<a href ="delete/{{ article.key.id() }}">Delet </a> 
-    	&nbsp;&nbsp;
-    	<a href ="show/{{ article.key.id() }}">Show </a> </br>
-	{% endfor %}
+<br>
+<br>
+<br>
+<br>	
+	<div class="inner cover" >
+		  <h1 class="text-center">Listing Article</h1>
+      <form action="" method="post" class="text-right">
+        <input type="text" name="datearticle" class="tcal" value="" />
+      </form>
+		{% for article in templatevalues.articles %}
+        <div class="col-md-5 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>{{ article.title }}</4>
+                    </div>
+                        <div class="panel-body">
+                            {{ article.text }}
+                            </br>
+                            </br>
+                            <div class="row">
+                              <div class="col-md-4">
+                              {{ article.date.strftime('%d.%m.%y')  }}
+                              {{ article.username }}
+                              </div>
+                              <div class="col-md-4 col-md-offset-4">
+                            {% if templatevalues.user_log %}
+                                <a href ="delete/{{ article.key.id() }}" class="btn btn-primary btn-xs" role="button">Delet </a> 
+                                <a href ="/{{ article.key.id() }}" class="btn btn-primary btn-xs" role="button">Show </a> 
+                            {% else %}
+                                <a href ="/{{ article.key.id() }}" class="btn btn-primary btn-xs" role="button">Show </a> 
+                            {% endif %}
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+ 		{% endfor %}
+</div>
 {% endblock content %}

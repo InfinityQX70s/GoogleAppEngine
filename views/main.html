@@ -1,14 +1,32 @@
 <html>
+  	<head>
+    	<link href="static/css/bootstrap.css" rel="stylesheet">
+		<link href="static/css/styles.css" rel="stylesheet">
+		<link href="static/css/tcal.css" rel="stylesheet">
+		<script type="text/javascript" src="static/js/tcal.js"></script> 
+  	</head>
 	<body>
-		<a href ="/create">Create</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href ="/">Main</a> 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href ="/register">Register</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href ="/login">Log In</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href ="/logout">Log Out</a> </br>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Blog on Google App Engine</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            {% if templatevalues.user_log %}
+			<li><a href ="/create">Create</a></li>
+			<li><a href ="/">Home</a> </li>
+			<li><a href ="/register">Register</a></li>
+			<li><a href ="/logout">Log Out</a></li>
+		{% else %}
+			<li><a href ="/">Home</a> </li>
+			<li><a href ="/register">Register</a></li>
+			<li><a href ="/login">Log In</a></li>
+		{% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 		{% block  content %}
 		{% endblock %}
 	</body>

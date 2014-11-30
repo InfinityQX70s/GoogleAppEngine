@@ -3,4 +3,4 @@ from google.appengine.ext import ndb
 class User(ndb.Model):
 	username = ndb.StringProperty()
 	password = ndb.StringProperty()
-	date = ndb.DateTimeProperty(auto_now_add=True)
+	date = ndb.DateProperty(auto_now_add=True)

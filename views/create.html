@@ -1,8 +1,16 @@
 {%  extends "main.html" %}
 {% block content %}
-<form action="" method="post">
-    <input type="text" name="title" > <br>
-    <input type="text" name="text" > <br>
-    <input type="submit" value="Create">
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-4 col-md-offset-4">
+	<h1 class="text-center">Create Article</h1>
+<form action="" class="text-center" method="post">
+    <input type="text" class = "form-control" name="title" placeholder = "Title" required> <br>
+    <textarea type="text" class = "form-control" name="text" rows = "7" placeholder = "Text" required></textarea>
+	<br>
+    <input type="submit" class = "btn btn-primary btn-lg" value="Create">
 </form> 
+</div>
 {% endblock content %}

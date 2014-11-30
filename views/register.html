@@ -1,8 +1,17 @@
 {%  extends "main.html" %}
 {% block content %}
-<form action="" method="post">
-    <input type="text" name="username" > <br>
-    <input type="text" name="password" > <br>
-    <input type="submit" value="Register">
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-4 col-md-offset-4">
+	<h1 class="text-center">Register New User</h1>
+<form action="" class="text-center" method="post">
+    <input type="text" class = "form-control" name="username" placeholder = "Nickname" required> <br>
+    <input type="text" class = "form-control" name="email" placeholder = "Emal" required> <br>
+    <input type="password" class = "form-control" name="password" required> <br>
+    <input type="password" class = "form-control" name="confirm" required> <br>
+    <input type="submit" class = "btn btn-primary btn-lg" value="Register">
 </form> 
+</div>
 {% endblock content %}

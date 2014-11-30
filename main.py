@@ -11,7 +11,7 @@ app = webapp2.WSGIApplication([
 		webapp2.Route(r'/register', handler=RegisterUser, name=''),
     	webapp2.Route(r'/create', handler=CreateArticle, name=''),
     	webapp2.Route(r'/delete/<article_id:\d+>', handler=DeleteArticle, name=''),
-    	webapp2.Route(r'/show/<num_art:\d+>', handler=ShowArticle, name=''),
-    	webapp2.Route(r'/show/<num_com:\d+>/create', handler=CreateComent, name=''),
-    	webapp2.Route(r'/show/<num_art:\d+>/delete/<del_com:\d+>', handler=DeleteComent, name=''),
+    	webapp2.Route(r'/<num_art:\d+>', handler=ShowArticle, name=''),
+    	webapp2.Route(r'/<num_com:\d+>/create', handler=CreateComent, name=''),
+    	webapp2.Route(r'/<num_art:\d+>/delete/<del_com:\d+>', handler=DeleteComent, name=''),
 	], debug=True)
